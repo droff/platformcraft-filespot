@@ -1,4 +1,4 @@
-require './lib/filespot/client/objects'
+require 'filespot/client/objects'
 
 module Filespot
   class Client
