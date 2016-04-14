@@ -1,5 +1,5 @@
 require 'webmock/rspec'
-require './lib/filespot'
+require 'filespot'
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|

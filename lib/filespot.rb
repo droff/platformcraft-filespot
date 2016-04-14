@@ -1,9 +1,9 @@
-require './lib/filespot/version'
-require './lib/filespot/configuration'
-require './lib/filespot/digest'
-require './lib/filespot/request'
-require './lib/filespot/response'
-require './lib/filespot/client'
+require 'filespot/version'
+require 'filespot/configuration'
+require 'filespot/digest'
+require 'filespot/request'
+require 'filespot/response'
+require 'filespot/client'
 
 module Filespot
   extend Configuration
