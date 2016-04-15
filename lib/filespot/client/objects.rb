@@ -6,7 +6,7 @@ module Filespot
 
       arr = []
       count, objects = res.data['count'].to_i, res.data['objects']
-      count.times { |i| arr << Object.new(res.data['objects'][i]) }
+      count.times { |i| arr << Object.new(objects[i]) }
       arr
     end
 
@@ -16,9 +16,9 @@ module Filespot
       Object.new(res.data['object'])
     end
 
-    def post_object(file, type)
-      file_io = Faraday::UploadIO.new(file, type)
-      res = Response.new(Request.post("/objects", {}, { file: file_io }))
+    def post_object(file, name = nil)
+      file_io = Faraday::UploadIO.new(file, 'application/octet-stream')
+      res = Response.new(Request.post("/objects", {}, { file: file_io, name: name }))
       return res unless res.code == 200
 
       Object.new(res.data['object'])
