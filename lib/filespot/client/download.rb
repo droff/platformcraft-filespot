@@ -3,7 +3,7 @@ module Filespot
     def post_download(url, path = nil)
       res = Response.new(Request.post("/download", {}, { url: url, path: path }))
       return nil unless res.code == 200
-      res.data['task-id']
+      res.data['task_id']
     end
 
     def get_download_tasks
