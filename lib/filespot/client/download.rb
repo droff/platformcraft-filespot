@@ -19,7 +19,7 @@ module Filespot
     def get_download_task(task_id)
       res = Response.new(Request.get("/download_tasks/#{task_id}"))
       return nil unless res.code == 200
-      Task.new(res.data['task'])
+      Task.new(res.data['task'], res.data['files'])
     end
 
     def delete_download_task(task_id)
@@ -29,8 +29,11 @@ module Filespot
   end
 
   class Task
-    def initialize(data)
+    attr_reader :files
+
+    def initialize(data, files = [])
       data.each { |k, v| define_singleton_method(k.to_sym) { v } }
+      @files = files
     end
   end
 end
