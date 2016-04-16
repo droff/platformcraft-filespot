@@ -9,6 +9,17 @@ RSpec.configure do |config|
   config.mock_with :rspec do |mocks|
     mocks.verify_partial_doubles = true
   end
+
+  config.before do
+    allow(Time).to receive(:now).and_return(1450342665)
+
+    Filespot.configure do |config|
+      config.url = 'api.platformcraft.ru'
+      config.version = '1'
+      config.apiuserid = 'test'
+      config.apikey = 'APIUserKey'
+    end
+  end
 end
 
 def stub_get(uri, fixture_name)
