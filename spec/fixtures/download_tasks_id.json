@@ -1,0 +1,15 @@
+{
+    "code": 200,
+    "files":["56ea7c4e534b44353536586c"],
+    "status": "success",
+    "task": {
+        "id": "57011e2a534b44741fc67880",
+        "category": "download",
+        "title": "Download abc.mp4",
+        "body": "Download success.",
+        "status": "Completed",
+        "time_start": "03.04.2016T16:44:10",
+        "time_finish": "03.04.2016T16:44:11",
+        "lock": false
+    }
+}
