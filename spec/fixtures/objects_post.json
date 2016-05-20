@@ -1,0 +1,17 @@
+{
+    "code": 200,
+    "status": "success",
+    "object": {
+        "id": "56787f0c044dfe226b000001",
+        "name": "test.mp4",
+        "path": "/test.mp4",
+        "size": 985781,
+        "content_type": "video/mp4",
+        "create_date": "22.12.2015T01:37:00",
+        "latest_update": "",
+        "resource_url": "api.platformcraft.ru/objects/56787f0c044dfe226b000001",
+        "cdn_url": "cdn.platformcraft.ru/billy/test.mp4",
+        "video": "video.platformcraft.ru/56787f0c044dfe226b000001",
+        "status": "ok"
+    }
+}
