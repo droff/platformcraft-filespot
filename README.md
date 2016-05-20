@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/droff/platformcraft-filespot.svg?branch=master)](https://travis-ci.org/droff/platformcraft-filespot)
+
 Filespot API Ruby Gem
 ====================
 A Ruby wrapper for the Filespot API
