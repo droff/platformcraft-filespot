@@ -1,4 +1,5 @@
 require 'faraday'
+require 'open-uri'
 
 module Filespot
   class Request
@@ -40,7 +41,7 @@ module Filespot
     end
 
     def self.api_uri(http_method, api_method, params)
-      uri = URI("http://" + Filespot.url)
+      uri = URI("https://" + Filespot.url)
       uri.path = "/#{Filespot.version}#{api_method}"
       uri.query = URI.encode_www_form(init_params(params))
       uri.query += "&hash=#{Digest.hmac(http_method, uri.to_s)}"
