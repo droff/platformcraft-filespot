@@ -8,6 +8,7 @@ Gem::Specification.new do |gem|
   gem.summary       = "http://doc.platformcraft.ru/filespot/api/"
   gem.homepage      = ""
 
+  gem.add_development_dependency 'rake'
   gem.add_development_dependency 'rspec'
   gem.add_development_dependency 'webmock'
   gem.add_dependency 'json'
