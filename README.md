@@ -1,11 +1,14 @@
 Filespot API Ruby Gem
 ====================
 A Ruby wrapper for the Filespot API
+
 http://doc.platformcraft.ru/filespot/api/
 
 Installation
 ------------
-  gem install platformcraft-filespot
+
+> gem install platformcraft-filespot
+
 
 Configuration
 ------------
