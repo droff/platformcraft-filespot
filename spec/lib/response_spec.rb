@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe Filespot::Response do
   context 'errors' do
     let(:response) { double('response') }

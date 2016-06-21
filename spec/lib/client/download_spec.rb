@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe Filespot::Download do
   describe 'Download' do
     context '#get_download_task' do
