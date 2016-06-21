@@ -5,22 +5,21 @@ module Filespot
     attr_reader :code, :status, :data
 
     def initialize(response)
+      return error if response.status == 500
+
+      @data = JSON.parse(response.body)
       if response.status == 200
-        json_data = JSON.parse(response.body)
-        @code = json_data.delete('code').to_i
-        @status = json_data.delete('status')
-        @data = json_data
-      else
-        return_error
+        @code = @data.delete('code').to_i
+        @status = @data.delete('status')
       end
+      error(response.status) unless @status
     end
 
     private
 
-    def return_error
-      @code = 500
+    def error(code=500)
+      @code = code
       @status = 'error'
-      @data = nil
     end
   end
 end
