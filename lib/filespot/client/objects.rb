@@ -1,7 +1,7 @@
 module Filespot
   module Objects
-    def get_objects
-      res = Response.new(Request.get("/objects"))
+    def get_objects(folder=nil)
+      res = Response.new(Request.get("/objects", folder: folder))
       return [] unless res.code == 200
 
       arr = []
