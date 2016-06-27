@@ -43,7 +43,7 @@ module Filespot
     def self.api_uri(http_method, api_method, params)
       uri = URI("https://" + Filespot.url)
       uri.path = "/#{Filespot.version}#{api_method}"
-      uri.query = URI.encode_www_form(default_params) #init_params(params))
+      uri.query = URI.encode_www_form(default_params)
       uri.query += "&hash=#{Digest.hmac(http_method, uri.to_s)}"
       uri.query += "&#{URI.encode_www_form(params)}" if params.any?
       uri
