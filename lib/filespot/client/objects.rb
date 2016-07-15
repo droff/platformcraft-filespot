@@ -1,7 +1,11 @@
 module Filespot
   module Objects
-    def get_objects
-      res = Response.new(Request.get("/objects"))
+    def exists?(path)
+      !!get_object_by_path(path)
+    end
+
+    def get_objects(folder=nil)
+      res = Response.new(Request.get("/objects", folder: folder))
       return [] unless res.code == 200
 
       arr = []
@@ -27,6 +31,21 @@ module Filespot
     def delete_object(object_id)
       res = Response.new(Request.delete("/objects/#{object_id}"))
       res
+    end
+
+    def delete_object_by_path(path)
+      object = get_object_by_path path
+      return delete_object(object.id) if object
+      nil
+    end
+
+    def get_object_by_path(path)
+      full_path = path[0] == '/' ? path : "/#{path}"
+      folder = File.dirname full_path
+      get_objects(folder).each do |object|
+        return object if object.path == full_path
+      end
+      nil
     end
   end
 
