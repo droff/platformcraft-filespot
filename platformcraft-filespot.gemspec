@@ -6,7 +6,7 @@ Gem::Specification.new do |gem|
   gem.email         = "adroff@gmail.com"
   gem.description   = "gem provides platformcraft filespot api"
   gem.summary       = "http://doc.platformcraft.ru/filespot/api/"
-  gem.homepage      = ""
+  gem.homepage      = "https://github.com/droff/platformcraft-filespot"
 
   gem.add_development_dependency 'rake'
   gem.add_development_dependency 'rspec'
