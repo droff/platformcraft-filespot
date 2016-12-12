@@ -1,9 +1,19 @@
 require 'json'
 
 module Filespot
+  ##
+  # Response class provides API response
   class Response
-    attr_reader :code, :status, :data
+    # HTTP code
+    attr_reader :code
 
+    # response status
+    attr_reader :status
+
+    # response data in JSON format
+    attr_reader :data
+
+    # creates response, checks errors and provides data if success
     def initialize(response)
       return error if response.status == 500
 

@@ -2,18 +2,36 @@ require 'faraday'
 require 'open-uri'
 
 module Filespot
+  ##
+  # Request class wraps HTTP-verbs
   class Request
 
+    # GET
+    #
+    # * +api_method+ - API method name
+    # * +uri_params+ - contains API method params
     def self.get(api_method = '', uri_params = {})
       uri = api_uri('GET', api_method, uri_params)
       connection(uri).get(uri.query)
     end
 
+    # POST
+    #
+    # * +api_method+  - API method name
+    # * +uri_params+  - contains API method params
+    # * +post_params+ - contains API post params
+    #
+    # === Example
+    #   Request.post("/objects", {}, { file: file_io, name: name })
     def self.post(api_method = '', uri_params = {}, post_params = {})
       uri = api_uri('POST', api_method, uri_params)
       connection(uri).post(uri.query, post_params)
     end
 
+    # DELETE
+    #
+    # * +api_method+  - API method name
+    # * +uri_params+  - contains API method params
     def self.delete(api_method = '', uri_params = {})
       uri = api_uri('DELETE', api_method, uri_params)
       connection(uri).delete(uri.query)

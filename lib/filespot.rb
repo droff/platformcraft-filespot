@@ -5,6 +5,8 @@ require 'filespot/request'
 require 'filespot/response'
 require 'filespot/client'
 
+##
+# Filespot gem module
 module Filespot
   extend Configuration
 end

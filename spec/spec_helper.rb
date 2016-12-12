@@ -26,18 +26,17 @@ end
 
 def stub_get(api_method, fixture_name)
   encoding = 'gzip;q=1.0,deflate;q=0.6,identity;q=0.3'
-  agent = 'Faraday v0.9.2'
+  agent = /Faraday/
   uri = /api.platformcraft.ru\/1/
   stub_request(:get, uri).with(headers: {'Accept'=>'*/*', 'Accept-Encoding'=> encoding, 'User-Agent'=> agent}).to_return(status: 200, body: fixture(fixture_name), headers: {})
 end
 
 def stub_post(api_method, fixture_name)
   encoding = 'gzip;q=1.0,deflate;q=0.6,identity;q=0.3'
-  agent = 'Faraday v0.9.2'
+  agent = /Faraday/
   uri = /api.platformcraft.ru\/1/
   stub_request(:post, uri).with(headers: {'Accept'=>'*/*', 'Accept-Encoding'=> encoding, 'User-Agent'=> agent}).to_return(status: 200, body: fixture(fixture_name), headers: {})
 end
-
 
 def fixture_path
   File.expand_path("../fixtures", __FILE__)
