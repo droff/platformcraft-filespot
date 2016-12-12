@@ -24,17 +24,23 @@ RSpec.configure do |config|
   end
 end
 
+def uri
+  /api.platformcraft.ru\/1/
+end
+
+def headers
+  {
+    'Accept'=>'*/*',
+    'Accept-Encoding'=> 'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+    'User-Agent'=> /Faraday/
+  }
+end
+
 def stub_get(api_method, fixture_name)
-  encoding = 'gzip;q=1.0,deflate;q=0.6,identity;q=0.3'
-  agent = /Faraday/
-  uri = /api.platformcraft.ru\/1/
-  stub_request(:get, uri).with(headers: {'Accept'=>'*/*', 'Accept-Encoding'=> encoding, 'User-Agent'=> agent}).to_return(status: 200, body: fixture(fixture_name), headers: {})
+  stub_request(:get, uri).with(headers: headers).to_return(status: 200, body: fixture(fixture_name), headers: {})
 end
 
 def stub_post(api_method, fixture_name)
-  encoding = 'gzip;q=1.0,deflate;q=0.6,identity;q=0.3'
-  agent = /Faraday/
-  uri = /api.platformcraft.ru\/1/
   stub_request(:post, uri).with(headers: {'Accept'=>'*/*', 'Accept-Encoding'=> encoding, 'User-Agent'=> agent}).to_return(status: 200, body: fixture(fixture_name), headers: {})
 end
 
