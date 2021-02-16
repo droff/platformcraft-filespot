@@ -9,4 +9,7 @@ require 'filespot/client'
 # Filespot gem module
 module Filespot
   extend Configuration
+
+  Error = Class.new(StandardError)
+  TaskError = Class.new(Error)
 end
