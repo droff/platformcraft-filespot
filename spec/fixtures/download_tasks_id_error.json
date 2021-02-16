@@ -1,0 +1,15 @@
+{
+  "code": 200,
+  "files": null,
+  "status": "success",
+  "task": {
+    "id": "57011e2a534b44741fc67880",
+    "category": "download",
+    "title": "Download 0000001.1080.mp4",
+    "body": "Internal server error.",
+    "status": "Error",
+    "time_start": "25.01.2021T16:03:20",
+    "time_finish": "25.01.2021T16:04:20",
+    "lock": false
+  }
+}

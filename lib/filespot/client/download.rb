@@ -2,6 +2,8 @@ module Filespot
   ##
   # Download module wraps methods with `/download` resource[http://doc.platformcraft.ru/filespot/api/#download]
   module Download
+    STATUS_ERROR = 'Error'.freeze
+
     # POST /download
     # returns task_id
     def post_download(url, path = nil)
@@ -27,7 +29,10 @@ module Filespot
     def get_download_task(task_id)
       res = Response.new(Request.get("/download_tasks/#{task_id}"))
       return nil unless res.code == 200
-      Task.new(res.data['task'], res.data['files'])
+      task = Task.new(res.data['task'], res.data['files'])
+
+      raise(Filespot::TaskError, task.body) if task.status == STATUS_ERROR
+      task
     end
 
     # DELETE /download_tasks/{:task_id}
